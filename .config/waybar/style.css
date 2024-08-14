@@ -1,0 +1,233 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'Liberation Sans', FontAwesome;
+    font-size: 14px;  
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 10px;
+}
+
+window#waybar.topbar {
+    border-left: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 0;
+}
+
+window#waybar.bottombar {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-right: 0.5px solid rgba(255, 255, 255, 0.9);
+    border-top-right-radius: 0;
+}
+
+#window {
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    /* box-shadow: inset 0 -2px #ffffff; */
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    margin: 0 2px;
+    padding: 5px 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#workspaces button.active{
+    color: #0080ff;
+}
+
+/* #mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+} */
+
+#clock,
+#memory,
+#disk,
+#network,
+#wireplumber,
+#custom-media,
+#custom-updates,
+#custom-power,
+#custom-picker,
+#custom-language,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#keyboard-state {
+    margin: 0 2px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#custom-wofi,
+#custom-power {
+    margin: 0 5px;
+    padding: 0 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+#pulseaudio {
+    margin: 0 0 0 5px;
+    padding: 0 0 0 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#cpu {
+    margin: 0 0 0 5px;
+    padding: 0 0 0 5px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+#custom-weather {
+    margin: 0 5px;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+label:focus {
+    background-color: #fdee19;
+}
+
+#network.disconnected {
+    background-color: transparent;
+    color: #f53c3c;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: transparent;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #00ff99;
+}
+
+#mpd {
+    background-color: transparent;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    color: #007db8;
+}
+
+tooltip {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    font-size: 16px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    background-color: #ffffff;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 5px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 5px;
+    border-radius: 5px;
+    background-color: #0080ff;
+}

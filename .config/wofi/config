@@ -1,0 +1,15 @@
+mode = drun
+allow_images = true
+image_size = 32
+width = 33%
+height = 33%
+prompt = Enter search here
+columns = 2
+sort_order = alphabetical
+orientation = vertical
+single_click = true
+location = center
+insensitive = true
+hide_search = true
+dynamic_lines = true
+hide_scroll = true

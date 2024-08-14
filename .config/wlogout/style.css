@@ -1,0 +1,75 @@
+/*
+ * wlogout style, you will need to change the path to the background and icons.
+ */
+
+
+* {
+	font-size: 14pt;
+	color: #fff;
+	background-image: none;	
+}
+
+window {
+	background-image: image(url("/usr/share/backgrounds/my_backgrounds/volcano.png"));
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+button {
+    border-radius: 10px;
+	border: 1px solid #fff;
+	text-decoration-color: #FFFFFF;
+	background-color: rgba(12, 12, 12, 0.1);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button:hover {
+	background-color: rgba(12, 12, 12, 0.5);
+	outline-style: none;
+	border-radius: 10px;
+	border-color: rgba(0, 176, 255, 0.702);
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/white-icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/white-icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/white-icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/white-icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+
+#lock:hover {
+    background-image: image(url("/usr/share/wlogout/blue-icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#logout:hover {
+    background-image: image(url("/usr/share/wlogout/blue-icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#shutdown:hover {
+    background-image: image(url("/usr/share/wlogout/blue-icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+	box-shadow: 0px 5px 10px #000
+}
+
+#reboot:hover {
+    background-image: image(url("/usr/share/wlogout/blue-icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+	box-shadow: 0px 5px 10px #000
+}

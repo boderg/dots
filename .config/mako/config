@@ -1,0 +1,11 @@
+font=Inter Light 10
+background-color=#000000bb
+text-color=#ffffffbb
+border-size=1
+border-color=#ffffffbb
+border-radius=5
+layer=overlay
+anchor=top-right
+padding=10
+outer-margin=10
+default-timeout=5000
