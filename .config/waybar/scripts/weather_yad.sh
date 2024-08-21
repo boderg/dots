@@ -1,12 +1,5 @@
 #!/bin/bash
 
-
-# Displays the current weather and 5-day forecast in Celsius, using the OpenWeatherMap API.
-# You will need to set up your own config file with your API key, location, etc.
-# An empty template can be found in the waybar folder in this repository.
-# You will also need to install yad, jq, and curl.
-
-
 source /home/simon/.config/waybar/weather.conf
 
 URL="https://api.openweathermap.org/data/3.0/onecall?lat=${LATITUDE}&lon=${LONGITUDE}&exclude=${EXCLUDE}&units=${UNITS}&appid=${API_KEY}"
@@ -34,7 +27,7 @@ DAILY_DESCRIPTIONS=$(echo "${RESPONSE}" | jq -r '.daily[0:5] | map(.weather[0].d
 DAILY_ICONS=$(echo "${RESPONSE}" | jq -r '.daily[0:5] | map(.weather[0].icon)')
 
 # Convert Unix timestamps to human-readable format
-HUMAN_READABLE_DATE=$(date -d @${CURRENT_DATE} +"%a %d-%m-%Y %H:%M")
+HUMAN_READABLE_DATE=$(date -d @${CURRENT_DATE} +"%a %d-%m-%Y")
 HUMAN_READABLE_SUNRISE=$(date -d @${CURRENT_SUNRISE} +"%H:%M")
 HUMAN_READABLE_SUNSET=$(date -d @${CURRENT_SUNSET} +"%H:%M")
 
@@ -48,6 +41,13 @@ ICON_URL="https://openweathermap.org/img/wn/${CURRENT_ICON}.png"
 # Download the icon
 ICON_PATH="/tmp/weather_icon.png"
 curl -s -o "${ICON_PATH}" "${ICON_URL}"
+
+# Calculate the day names for the next 5 days
+DAY_NAMES=()
+for i in $(seq 0 4); do
+    DAY_NAMES+=($(date -d "+${i} day" +%A))
+    DAY_DATES+=($(date -d "+${i} day" +%d-%m))
+done
 
 # Format the daily temperatures and descriptions
 DAILY_INFO=""
@@ -63,10 +63,9 @@ for i in $(seq 0 4); do
     DAY_MAX_TEMP=$(printf "%.1f" "${DAY_MAX_TEMP}")
 
     DAILY_INFO="${DAILY_INFO}
-Day $((i+1)):
+${DAY_NAMES[$i]} ${DAY_DATES[$i]}:
     Temperature: ${DAY_TEMP}°C
-    Min: ${DAY_MIN_TEMP}°C
-    Max: ${DAY_MAX_TEMP}°C
+    Min: ${DAY_MIN_TEMP}°C - Max: ${DAY_MAX_TEMP}°C
     Description: ${DAY_DESC}
 "
 done
@@ -74,8 +73,8 @@ done
 # Format the output string
 INFO="
 Weather Report:
-Date: ${HUMAN_READABLE_DATE}
-Timezone: ${TIMEZONE}
+    Date: ${HUMAN_READABLE_DATE}
+    Timezone: ${TIMEZONE}
 
 Current Conditions:
     Temperature: ${CURRENT_TEMP}°C
@@ -108,4 +107,4 @@ yad --image="${ICON_PATH}" \
     --fixed \
     --title="Weather Report" \
     --text-align=left \
-    --timeout=30
+    --timeout=30 
