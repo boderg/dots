@@ -8,7 +8,7 @@ window {
     border-radius: 10px;
     background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
                 linear-gradient(135deg, #fff, #007db8, #fff) border-box;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
 }
 
 #input {
