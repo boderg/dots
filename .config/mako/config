@@ -1,8 +1,8 @@
-font=Liberation Sans 10
-background-color=#000000bb
-text-color=#ffffffbb
+font=Chakra Petch 10
+background-color=#111216
+text-color=#ffffff
 border-size=1
-border-color=#ffffffbb
+border-color=#ffffff
 border-radius=5
 layer=overlay
 anchor=top-right

@@ -17,7 +17,7 @@ done)
 selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | wofi --dmenu --hide-scroll --height=115 --width=640 --x=1256 --y=20)
 
 # Display sinks in yad and get the selected sink description
-# selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | yad --list --column="Description" --hide-column=1 --width=650 --height=400 --title="Select Audio Sink" --button="Select:0" --button="Cancel:1" --print-column=2 | xargs)
+# selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | yad --list --radiolist --column="Description" --hide-column=1 --width=650 --height=200 --title="Select Audio Sink" --button="Select:0" --button="Cancel:1" --print-column=2 | xargs)
 
 # Trim whitespace from the selected description
 selected_description=$(echo "$selected_description" | xargs)
@@ -43,10 +43,10 @@ if [ "$selected_sink" != "$current_sink" ]; then
       pactl move-sink-input "$stream" "$selected_sink"
     done
 
-    notify-send "Audio output changed to $selected_description"
+    notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "Audio output changed to $selected_description"
   else
-    notify-send "No audio output selected"
+    notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "No audio output selected"
   fi
 else
-  notify-send "Audio output is already set to $selected_description"
+  notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "Audio output is already set to $selected_description"
 fi

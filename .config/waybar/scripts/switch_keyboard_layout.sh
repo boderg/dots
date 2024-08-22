@@ -6,12 +6,21 @@ set_keyboard_layout() {
     if [ "$layout" == "us" ]; then
         hyprctl keyword input:kb_layout "us"
         echo "Keyboard layout set to US English"
+        send_notification "Keyboard layout set to US English"
     elif [ "$layout" == "gb" ]; then
         hyprctl keyword input:kb_layout "gb"
         echo "Keyboard layout set to GB English"
+        send_notification "Keyboard layout set to GB English"
     else
-        echo "Invalid layout selected"
+        echo "No layout selected"
+        send_notification "No layout selected"
     fi
+}
+
+# Function to send a notification
+send_notification() {
+    message=$1
+    notify-send -i /home/simon/.config/waybar/icons/language-translation-icon.png "Keyboard Layout Switcher" "$message"
 }
 
 # Display selection menu using wofi

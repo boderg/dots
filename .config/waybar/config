@@ -168,7 +168,8 @@
     },
 
     "disk": {
-        "format": " {}%"
+        "format": " {}%",
+        "on-click": "gnome-disks"
     },
 
     "temperature": {
@@ -176,7 +177,8 @@
         "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
         "critical-threshold": 80,
         "format-critical": " {temperatureC}°C",
-        "format": " {temperatureC}°C"
+        "format": " {temperatureC}°C",
+        "on-click": "amdgpu_top --gui"
     },
 
     "custom/picker": {

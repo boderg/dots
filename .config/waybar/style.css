@@ -65,7 +65,7 @@ button:hover {
 }
 
 #workspaces button.active{
-    color: #0080ff;
+    color: #007db8;
 }
 
 /* #mode {
@@ -226,9 +226,10 @@ label:focus {
 }
 
 tooltip {
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background: linear-gradient(rgba(17, 18, 22, 1), rgba(17, 18, 22, 1) ) padding-box,
+                linear-gradient(135deg, #fff, #007db8, #fff) border-box;
+    border: 1px solid transparent;
+    border-radius: 5px; 
     font-size: 16px;
 }
 
@@ -245,10 +246,10 @@ tooltip {
     min-height: 5px;
     min-width: 80px;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgba(17, 18, 22, 1);
 }
 #pulseaudio-slider highlight {
     min-width: 5px;
     border-radius: 5px;
-    background-color: #0080ff;
+    background-color: #007db8;
 }
