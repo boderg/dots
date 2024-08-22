@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-# A script to switch the keyboard layout using wofi
-
-
 # Function to set the keyboard layout
 set_keyboard_layout() {
     layout=$1
@@ -19,10 +15,10 @@ set_keyboard_layout() {
 }
 
 # Display selection menu using wofi
-selected_layout=$(echo -e "us\ngb" | wofi --dmenu --hide-scroll --height=42 --width=100 --x=1500 --y=20 --prompt="Select Keyboard Layout:")
+selected_layout=$(echo -e "us\ngb" | wofi --dmenu --hide-scroll --height=45 --width=100 --x=1500 --y=20 --prompt="Select Keyboard Layout:")
 
 # Display selection menu using yad
-# selected_layout=$(yad --list --radiolist --column="" --column="Layout" TRUE "us" FALSE "gb" --title="Select Keyboard Layout" --width=300 --height=200 --center --button=OK:0 --button=Cancel:1 | awk '{print $2}')
+# selected_layout=$(yad --list --radiolist --column="" --column="Layout" TRUE "us" FALSE "gb" --title="Select Keyboard Layout" --width=300 --height=150 --center --button=OK:0 --button=Cancel:1 | awk '{print $2}')
 
 
 # Trim any leading or trailing spaces

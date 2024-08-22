@@ -1,11 +1,5 @@
 #!/bin/bash
 
-
-# Displays the current weather in Celsius on waybar, using the OpenWeatherMap API.
-# You will need to set up your own config file with your API key, location, etc.
-# An empty template can be found in the waybar folder in this repository.
-
-
 source /home/simon/.config/waybar/weather.conf
 
 URL="https://api.openweathermap.org/data/3.0/onecall?lat=${LATITUDE}&lon=${LONGITUDE}&exclude=${EXCLUDE}&units=${UNITS}&appid=${API_KEY}"

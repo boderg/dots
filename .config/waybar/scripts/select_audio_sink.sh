@@ -1,9 +1,5 @@
 #!/bin/bash
 
-
-# A script to select an audio sink and set it as the default sink using wofi
-
-
 # Get the current default sink
 current_sink=$(pactl info | grep "Default Sink" | awk '{print $3}')
 
@@ -12,13 +8,13 @@ sinks=$(pactl list short sinks | while read -r line; do
   sink_name=$(echo "$line" | awk '{print $2}')
   sink_description=$(pactl list sinks | grep -A 10 "Name: $sink_name" | grep "Description:" | sed 's/.*Description: //')
   if [ "$sink_name" == "$current_sink" ]; then
-    sink_description="==> $sink_description <=="
+    sink_description="=> $sink_description"
   fi
   echo "$sink_name|$sink_description"
 done)
 
 # Display sinks in wofi and get the selected sink description
-selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | wofi --dmenu --hide-scroll --height=108 --width=650 --x=1246 --y=20)
+selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | wofi --dmenu --hide-scroll --height=115 --width=640 --x=1256 --y=20)
 
 # Display sinks in yad and get the selected sink description
 # selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | yad --list --column="Description" --hide-column=1 --width=650 --height=400 --title="Select Audio Sink" --button="Select:0" --button="Cancel:1" --print-column=2 | xargs)

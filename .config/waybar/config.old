@@ -1,0 +1,179 @@
+{   
+    "name": "top",
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "width": 1920, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/wofi",
+        "hyprland/workspaces", 
+        "hyprland/window"
+	],
+
+    "modules-center": [
+        "custom/power",
+        "clock",
+        "custom/updates"
+	],
+
+    "modules-right": [
+        "hyprland/language",
+        "keyboard-state",
+        "custom/picker",
+        "pulseaudio", 
+        "tray",
+        "network", 
+        "cpu", 
+        "memory",
+        "disk"        
+    ],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+	"on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        // "format": "{name}: {icon}",
+	    // "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+
+    "hyprland/window": {
+	"max-length": 200,
+	"separate-outputs": true
+    },
+
+    "keyboard-state": {
+        "numlock": false,
+        "capslock": true,
+        "tooltip-format": "Caps: {capslock}",
+        "tooltip": true,
+        // "format": "{name} {icon}",
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    "clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%a %d/%m/%Y}",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                                "months":     "<span font-family='JetBrains Mono' color='#ffead3'>{}</span>",
+                                "days":       "<span font-family='JetBrains Mono' color='#ecc6d9'>{}</span>",
+                                "weeks":      "<span font-family='JetBrains Mono' color='#99ffdd'>w{}</span>",
+                                "weekdays":   "<span font-family='JetBrains Mono' color='#ffcc66'>{}</span>",
+                                "today":      "<span font-family='JetBrains Mono' color='#ff6699'><u>{}</u></span>"
+                                }
+                    }
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": " {}%"
+    },
+
+    "disk": {
+        "format": " {}%"
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "", // {ipaddr}/{cidr}
+        "tooltip-format": " {ifname} via {gwaddr}, {ipaddr}/{cidr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/wofi": {
+        "format": "󰀻",
+        "tooltip-format": "Menu",
+        "tooltip": true,
+        "on-click": "wofi"
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Power",
+        "tooltip": true,
+        "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
+    },
+
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "󱍷",
+            "updated": "󰂪"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300",
+        "on-click": "kitty -e sudo pacman -Syu"
+    },
+
+    "custom/picker": {
+        "format": "",
+        "tooltip-format": "Hyprpicker",
+        "tooltip": true,
+        "on-click": "hyprpicker -a -f rgb"
+    },
+
+    "hyprland/language": {
+        "format": " {short}",
+        "format-us": "US",
+        "format-gb": "UK"
+    },
+
+    "tray": {
+        "spacing": 4
+    }
+
+}

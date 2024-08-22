@@ -5,9 +5,10 @@
 
 window {
     margin: 2px;
-    border: 0.5px solid #ffffff;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.733);
+    background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
+                linear-gradient(135deg, #fff, #007db8, #fff) border-box;
+    border: 2px solid transparent;
 }
 
 #input {
@@ -26,6 +27,10 @@ window {
 #scroll {
     margin: 2px 2px 2px 2px;
 }
+
+/* scrollbar {
+    background-color: rgba(12, 12, 12, 0.5);
+} */
 
 #text {
     margin: 2px;

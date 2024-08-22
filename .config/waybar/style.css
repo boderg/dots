@@ -1,11 +1,10 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Liberation Sans', FontAwesome;
+    font-family: 'Chakra Petch', FontAwesome;
     font-size: 14px;  
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.1);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -13,20 +12,29 @@ window#waybar {
 }
 
 window#waybar.topbar {
-    border-left: 0.5px solid rgba(255, 255, 255, 0.9);
-    border-top: 0.5px solid rgba(255, 255, 255, 0.9);
+    background: linear-gradient(to right, rgba(17, 18, 22, 0.9), rgba(17, 18, 22, 1) ) padding-box,
+                linear-gradient(to right, #fff, #007db8) border-box;
+    border-left: 1px solid transparent;
+    border-top: 1px solid transparent;
     border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 window#waybar.bottombar {
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.9);
-    border-right: 0.5px solid rgba(255, 255, 255, 0.9);
+    background: linear-gradient(to right, rgba(17, 18, 22, 1), rgba(17, 18, 22, 0.9) ) padding-box,
+                linear-gradient(to right, #007db8, #fff) border-box;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
     border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 #window {
     padding: 5px 5px;
     border-radius: 5px;
+    /* box-shadow: inset 0 -2px #ffffff; */
 }
 
 #window,
@@ -45,6 +53,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
+    /* box-shadow: inset 0 -2px #66cc99; */
 }
 
 #workspaces button {
@@ -79,7 +88,7 @@ button:hover {
 #idle_inhibitor,
 #mpd,
 #keyboard-state {
-    margin: 0 2px;
+    margin: 0 3px;
     color: #ffffff;
     border-radius: 5px;
     background-color: transparent;
@@ -134,6 +143,7 @@ label:focus {
 
 #network.disconnected {
     background-color: transparent;
+    /* background-color: #f53c3c; */
     color: #f53c3c;
 }
 
@@ -176,13 +186,15 @@ label:focus {
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
+    /* background-color: #ecf0f1; */
+    /* color: transparent; */
     color: #00ff99;
 }
 
 #mpd {
     background-color: transparent;
-    color: #2a5c45;
+    /* background-color: #66cc99;
+    color: #2a5c45; */
 }
 
 #mpd.disconnected {
@@ -196,6 +208,14 @@ label:focus {
 #mpd.paused {
     background-color: #51a37a;
 }
+
+/* #language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+} */
 
 #keyboard-state > label {
     padding: 0 5px;
@@ -218,6 +238,7 @@ tooltip {
     opacity: 0;
     background-image: none;
     background-color: #ffffff;
+    /* border: 1px solid #ffffff; */
     box-shadow: none;
 }
 #pulseaudio-slider trough {

@@ -159,7 +159,7 @@
     "modules-right": ["custom/weather"],
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "tooltip": true
     },
 
@@ -175,8 +175,8 @@
         "thermal-zone": 1,
         "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
         "critical-threshold": 80,
-        "format-critical": "{temperatureC}°C ",
-        "format": "{temperatureC}°C "
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
     },
 
     "custom/picker": {
