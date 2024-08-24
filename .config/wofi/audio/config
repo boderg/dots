@@ -1,0 +1,13 @@
+mode = dmenu
+style = /home/simon/.config/wofi/audio/style.css
+allow_images = true
+image_size = 32
+columns = 1
+sort_order = alphabetical
+orientation = vertical
+single_click = true
+hide_search = true
+dynamic_lines = true
+hide_scroll = true
+content_halign = center
+location = center

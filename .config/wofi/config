@@ -10,6 +10,6 @@ orientation = vertical
 single_click = false
 location = center
 insensitive = true
-hide_search = true
+hide_search = false
 dynamic_lines = true
 hide_scroll = true

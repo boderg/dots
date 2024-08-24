@@ -24,14 +24,28 @@ send_notification() {
 }
 
 # Display selection menu using wofi
-selected_layout=$(echo -e "us\ngb" | wofi --dmenu --hide-scroll --height=45 --width=100 --x=1500 --y=20 --prompt="Select Keyboard Layout:")
-
-# Display selection menu using yad
-# selected_layout=$(yad --list --radiolist --column="" --column="Layout" TRUE "us" FALSE "gb" --title="Select Keyboard Layout" --width=300 --height=150 --center --button=OK:0 --button=Cancel:1 | awk '{print $2}')
-
+selected_layout=$(echo -e "US English\nGB English" | \
+wofi \
+--conf=/home/simon/.config/wofi/keyboard/config \
+--dmenu \
+--height=80 \
+--width=200)
 
 # Trim any leading or trailing spaces
 selected_layout=$(echo "$selected_layout" | xargs)
 
+# Map the selected full name to the corresponding layout code
+case "$selected_layout" in
+    "US English")
+        layout_code="us"
+        ;;
+    "GB English")
+        layout_code="gb"
+        ;;
+    *)
+        layout_code=""
+        ;;
+esac
+
 # Set the keyboard layout based on the selection
-set_keyboard_layout "$selected_layout"
+set_keyboard_layout "$layout_code"

@@ -12,7 +12,7 @@ window {
 }
 
 #input {
-    margin: 4px 4px 0px 4px;
+    margin: -50px 4px 0px 4px;
     color: #fff;
     border-radius: 5px;
     border: 1px solid #007db8;
@@ -55,7 +55,7 @@ window {
 
 #entry:selected {
     margin: 2px;
-    background-color: rgba(0, 176, 255, 0.9);
+    background-color: #007db8;
     border: 0.5px solid #ffffff;
     border-radius: 5px;
 }

@@ -14,10 +14,13 @@ sinks=$(pactl list short sinks | while read -r line; do
 done)
 
 # Display sinks in wofi and get the selected sink description
-selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | wofi --dmenu --hide-scroll --height=115 --width=640 --x=1256 --y=20)
-
-# Display sinks in yad and get the selected sink description
-# selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | yad --list --radiolist --column="Description" --hide-column=1 --width=650 --height=200 --title="Select Audio Sink" --button="Select:0" --button="Cancel:1" --print-column=2 | xargs)
+selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | \
+wofi \
+--conf=/home/simon/.config/wofi/audio/config \
+--dmenu \
+--height=115 \
+--width=640 \
+)
 
 # Trim whitespace from the selected description
 selected_description=$(echo "$selected_description" | xargs)
