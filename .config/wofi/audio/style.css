@@ -5,7 +5,7 @@
 
 window {
     margin: 2px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
                 linear-gradient(135deg, #fff, #007db8, #fff) border-box;
     border: 1px solid transparent;

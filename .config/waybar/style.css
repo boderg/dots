@@ -8,17 +8,18 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 10px;
 }
 
 window#waybar.topbar {
     background: linear-gradient(to right, rgba(17, 18, 22, 0.9), rgba(17, 18, 22, 1) ) padding-box,
                 linear-gradient(to right, #fff, #007db8) border-box;
-    border-left: 1px solid transparent;
     border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 window#waybar.bottombar {
@@ -26,9 +27,11 @@ window#waybar.bottombar {
                 linear-gradient(to right, #007db8, #fff) border-box;
     border-bottom: 1px solid transparent;
     border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 #window {
@@ -239,7 +242,6 @@ tooltip {
     opacity: 0;
     background-image: none;
     background-color: #ffffff;
-    /* border: 1px solid #ffffff; */
     box-shadow: none;
 }
 #pulseaudio-slider trough {
