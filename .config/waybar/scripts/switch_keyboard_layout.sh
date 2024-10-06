@@ -28,7 +28,7 @@ selected_layout=$(echo -e "US English\nGB English" | \
 wofi \
 --conf=/home/simon/.config/wofi/keyboard/config \
 --dmenu \
---height=80 \
+--height=90 \
 --width=200)
 
 # Trim any leading or trailing spaces

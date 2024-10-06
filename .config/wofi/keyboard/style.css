@@ -6,8 +6,9 @@
 window {
     margin: 2px;
     border-radius: 5px;
-    background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
-                linear-gradient(135deg, #fff, #007db8, #fff) border-box;
+    /* background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
+                linear-gradient(135deg, #fff, #007db8, #fff) border-box; */
+    background-color: transparent;
     border: 1px solid transparent;
 }
 
@@ -20,11 +21,15 @@ window {
 }
 
 #outer-box {
-    margin: 2px;
+    margin: 20px;
+    background-color: rgba(21, 24, 29, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    border: 1px solid rgba(81, 163, 122, 0.2); 
 }
 
 #inner-box {
-    margin: 2px 2px 2px 2px;
+    margin: 5px 5px 5px 5px;
 }
 
 #scroll {

@@ -18,7 +18,7 @@ selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | \
 wofi \
 --conf=/home/simon/.config/wofi/audio/config \
 --dmenu \
---height=115 \
+--height=130 \
 --width=640 \
 )
 

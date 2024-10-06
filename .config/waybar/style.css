@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: 'Chakra Petch', FontAwesome;
-    font-size: 14px;  
+    font-size: 14px;
 }
 
 window#waybar {
@@ -11,38 +11,33 @@ window#waybar {
 }
 
 window#waybar.topbar {
-    background: linear-gradient(to right, rgba(17, 18, 22, 0.9), rgba(17, 18, 22, 1) ) padding-box,
-                linear-gradient(to right, #fff, #007db8) border-box;
-    border-top: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
+    background-color: transparent;
+    /* border-radius: 5px; */
 }
 
 window#waybar.bottombar {
-    background: linear-gradient(to right, rgba(17, 18, 22, 1), rgba(17, 18, 22, 0.9) ) padding-box,
-                linear-gradient(to right, #007db8, #fff) border-box;
-    border-bottom: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    background-color: transparent;
+    /* border-radius: 5px; */
 }
 
 #window {
-    padding: 5px 5px;
+    margin: 0 5px 0 0;
     border-radius: 5px;
-    /* box-shadow: inset 0 -2px #ffffff; */
+}
+
+.modules-left, 
+.modules-center,
+.modules-right {
+    background-color: rgb(21, 24, 29);
+    border-radius: 5px;
+    border: 1px solid rgba(81, 163, 122, 0.2);  
+    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+    margin: 5px;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 5px;
 }
 
 button {
@@ -56,12 +51,11 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    /* box-shadow: inset 0 -2px #66cc99; */
 }
 
 #workspaces button {
     margin: 0 2px;
-    padding: 5px 5px;
+    padding: 0 5px;
     color: #ffffff;
     border-radius: 5px;
     background-color: transparent;
@@ -71,62 +65,32 @@ button:hover {
     color: #007db8;
 }
 
-/* #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-} */
-
 #clock,
-#memory,
-#disk,
-#network,
-#wireplumber,
-#custom-media,
-#custom-updates,
-#custom-power,
-#custom-picker,
-#custom-language,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd,
-#keyboard-state {
-    margin: 0 3px;
-    color: #ffffff;
-    border-radius: 5px;
-    background-color: transparent;
-}
-
 #custom-wofi,
 #custom-power {
+    color: #ffffff;
     margin: 0 5px;
-    padding: 0 5px;
-    color: #ffffff;
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 18px;
 }
 
-#pulseaudio {
-    margin: 0 0 0 5px;
-    padding: 0 0 0 5px;
+#keyboard-state,
+#language,
+#tray,
+#network,
+#custom-updates,
+#wireplumber,
+#pulseaudio, 
+#custom-media,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-picker,
+#wlr-taskbar,
+#custom-weather { 
     color: #ffffff;
-    border-radius: 5px;
-    background-color: transparent;
-}
-
-#cpu {
-    margin: 0 0 0 5px;
-    padding: 0 0 0 5px;
-    color: #ffffff;
-    border-radius: 5px;
-    background-color: transparent;
-}
-
-#custom-weather {
-    margin: 0 5px;
-    padding: 0 5px;
-    border-radius: 5px;
+    padding: 5px;
     background-color: transparent;
 }
 
@@ -229,10 +193,9 @@ label:focus {
 }
 
 tooltip {
-    background: linear-gradient(rgba(17, 18, 22, 1), rgba(17, 18, 22, 1) ) padding-box,
-                linear-gradient(135deg, #fff, #007db8, #fff) border-box;
-    border: 1px solid transparent;
-    border-radius: 5px; 
+    background-color: rgba(21, 24, 29, 1);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     font-size: 16px;
 }
 

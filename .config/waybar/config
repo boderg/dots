@@ -5,13 +5,13 @@
     "margin-top": 5,
     "height": 30,
     "width": 1910,
-    "spacing": 4,
+    "spacing": 0,
 
     "modules-left": ["custom/wofi", "hyprland/workspaces", "hyprland/window"],
 
     "modules-center": ["clock"],
 
-    "modules-right": ["hyprland/language", "keyboard-state", "tray", "network", "custom/updates", "pulseaudio", "pulseaudio/slider", "custom/power"],
+    "modules-right": ["keyboard-state", "hyprland/language", "tray", "network", "custom/updates", "pulseaudio", "pulseaudio/slider", "custom/power"],
 
     "custom/wofi": {
         "format": "󰀻",
@@ -62,18 +62,9 @@
                     }
     },
 
-    "hyprland/language": {
-        "format": " {short}",
-        "format-us": "us",
-        "format-gb": "gb",
-        "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
-    },
-
     "keyboard-state": {
         "numlock": false,
         "capslock": true,
-        "tooltip-format": "Caps: {capslock}",
-        "tooltip": true,
         "format": "{icon}",
         "format-icons": {
             "locked": "",
@@ -81,9 +72,16 @@
         }
     },
 
+    "hyprland/language": {
+        "format": " {short}",
+        "format-us": "us",
+        "format-gb": "gb",
+        "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
+    },
+
     "tray": {
-        "icon-size": 18,
-        "spacing": 4,
+        "icon-size": 16,
+        "spacing": 10,
         "show-passive-items": true
     },
 
@@ -150,7 +148,7 @@
     "margin-bottom": 5,
     "height": 30,
     "width": 1910,
-    "spacing": 4,
+    "spacing": 0,
 
     "modules-left": ["cpu", "memory", "disk", "temperature"],
 
