@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Chakra Petch', FontAwesome;
+    font-family: 'Saira Semi Condensed', FontAwesome;
     font-size: 14px;
 }
 
@@ -74,6 +74,8 @@ button:hover {
     font-size: 18px;
 }
 
+#wlr-taskbar,
+#custom-picker,
 #keyboard-state,
 #language,
 #tray,
@@ -86,12 +88,20 @@ button:hover {
 #memory,
 #disk,
 #temperature,
-#custom-picker,
-#wlr-taskbar,
+#mpris,
+#cava,
 #custom-weather { 
     color: #ffffff;
     padding: 5px;
     background-color: transparent;
+}
+
+#custom-picker {
+    margin-left: 5px;
+}
+
+#cava {
+    color: aquamarine;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
