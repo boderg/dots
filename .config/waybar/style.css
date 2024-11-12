@@ -1,13 +1,16 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Saira Semi Condensed', FontAwesome;
+    font-family:
+        "Segoe UI",
+        FontAwesome,
+        Symbols Nerd Font Mono;
     font-size: 14px;
 }
 
 window#waybar {
-    color: #ffffff;
+    color: #eddef5;
     transition-property: background-color;
-    transition-duration: .5s;
+    transition-duration: 0.5s;
 }
 
 window#waybar.topbar {
@@ -25,12 +28,12 @@ window#waybar.bottombar {
     border-radius: 5px;
 }
 
-.modules-left, 
+.modules-left,
 .modules-center,
 .modules-right {
-    background-color: rgb(21, 24, 29);
+    background-color: rgb(35, 38, 46);
     border-radius: 5px;
-    border: 1px solid rgba(81, 163, 122, 0.2);  
+    border: 1px solid rgba(81, 163, 122, 0.2);
     box-shadow: 0 0 4px rgba(0, 0, 0, 1);
     margin: 5px;
 }
@@ -42,7 +45,7 @@ window#waybar.bottombar {
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
-    /* box-shadow: inset 0 -2px #ffffff; */
+    /* box-shadow: inset 0 -2px #eddef5; */
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
@@ -56,25 +59,26 @@ button:hover {
 #workspaces button {
     margin: 0 2px;
     padding: 0 5px;
-    color: #ffffff;
+    color: #eddef5;
     border-radius: 5px;
     background-color: transparent;
 }
 
-#workspaces button.active{
+#workspaces button.active {
     color: #007db8;
 }
 
 #clock,
 #custom-wofi,
 #custom-power {
-    color: #ffffff;
+    color: #eddef5;
     margin: 0 5px;
     padding: 5px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #wlr-taskbar,
+#custom-hyprshot,
 #custom-picker,
 #keyboard-state,
 #language,
@@ -82,7 +86,7 @@ button:hover {
 #network,
 #custom-updates,
 #wireplumber,
-#pulseaudio, 
+#pulseaudio,
 #custom-media,
 #cpu,
 #memory,
@@ -90,18 +94,18 @@ button:hover {
 #temperature,
 #mpris,
 #cava,
-#custom-weather { 
-    color: #ffffff;
+#custom-weather {
+    color: #eddef5;
     padding: 5px;
     background-color: transparent;
 }
 
-#custom-picker {
+#custom-hyprshot {
     margin-left: 5px;
 }
 
 #cava {
-    color: aquamarine;
+    color: #e0b3f8;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -194,9 +198,9 @@ label:focus {
     min-width: 16px;
 } */
 
-#keyboard-state > label {
+/* #keyboard-state > label {
     padding: 0 5px;
-}
+} */
 
 #keyboard-state > label.locked {
     color: #007db8;
@@ -214,7 +218,7 @@ tooltip {
     min-width: 0px;
     opacity: 0;
     background-image: none;
-    background-color: #ffffff;
+    background-color: #eddef5;
     box-shadow: none;
 }
 #pulseaudio-slider trough {

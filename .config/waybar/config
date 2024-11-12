@@ -1,20 +1,40 @@
-[{   
+[{
     "name": "topbar",
     "layer": "top",
+    "output": ["DP-1", "HDMI-A-2"],
     "position": "top",
     "margin-top": 5,
     "height": 42,
     "width": 1910,
     "spacing": 0,
 
-    "modules-left": ["custom/wofi", "hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
+    "modules-left": [
+        "custom/wofi", 
+        "hyprland/workspaces", 
+        "hyprland/window"
+        //"wlr/taskbar"
+    ],
 
-    "modules-center": ["clock"],
+    "modules-center": [
+        "clock"
+    ],
 
-    "modules-right": ["custom/picker", "keyboard-state", "hyprland/language", "tray", "network", "custom/updates", "pulseaudio", "pulseaudio/slider", "custom/power"],
+    "modules-right": [
+        "mpris", 
+        "custom/hyprshot", 
+        "custom/picker", 
+        "keyboard-state", 
+        "hyprland/language", 
+        "tray", 
+        "network", 
+        "custom/updates", 
+        "pulseaudio", 
+        //"pulseaudio/slider", 
+        "custom/power"
+    ],
 
     "custom/wofi": {
-        "format": "󰀻",
+        "format": "󰣇",
         "tooltip-format": "Menu",
         "tooltip": true,
         "on-click": "wofi"
@@ -25,39 +45,48 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+        "format": "{name}"
+        // "format-icons": {
+        //     "1": "",
+        //     "2": "",
+        //     "3": "",
+        //     "4": "",
+        //     "5": "",
+        //     "urgent": "",
+        //     "focused": "",
+        //     "default": ""
+        // }
     },
 
     "hyprland/window": {
-	"max-length": 200,
-	"separate-outputs": true
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": false,
+        "icon": true,
+        "icon-size": 18,
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "Firefox",
+            "(.*) - Brave": "Brave",
+            "(.*) - Visual Studio Code": "VS Code",
+            "(.*) - Mozilla Thunderbird Beta": "Thunderbird"
+        }
     },
 
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 18,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": [
-            "kitty"
-        ]
-    },
+    // "wlr/taskbar": {
+    //     "format": "{icon}",
+    //     "icon-size": 18,
+    //     "tooltip-format": "{title}",
+    //     "on-click": "activate",
+    //     "on-click-middle": "close",
+    //     "ignore-list": [
+    //         "kitty"
+    //     ]
+    // },
 
     "clock": {
         "timezone": "Europe/London",
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format-alt": "{:%a %d/%m/%Y}",
+        "format-alt": "{:%a %d-%m-%Y}",
         "calendar": {
                     "mode"          : "month",
                     "mode-mon-col"  : 3,
@@ -73,6 +102,31 @@
                     }
     },
 
+    "mpris": {
+        "format": "{player_icon} {dynamic} <sup>{player}</sup>",
+        "format-paused": "{status_icon} {dynamic} <sup>{player}</sup>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": [
+            "firefox",
+            "brave"
+        ]
+    },
+
+    "custom/hyprshot": {
+        "format": "",
+        "tooltip-format": "Hyprshot",
+        "tooltip": true,
+        "on-click": "hyprshot -m window",
+        "on-click-right": "hyprshot -m output",
+        "on-click-middle": "hyprshot -m region"
+    },
+
     "custom/picker": {
         "format": "",
         "tooltip-format": "Hyprpicker",
@@ -84,31 +138,35 @@
     "keyboard-state": {
         "numlock": false,
         "capslock": true,
+        "tooltip-format": "Capslock",
+        "tooltip": true,
         "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "󰪛",
+            "unlocked": "󰪛"
         }
     },
 
     "hyprland/language": {
-        "format": " <sup>{short}</sup>",
+        "format": " {short}",
         "format-us": "us",
         "format-gb": "gb",
+        "tooltip-format": "{short}",
+        "tooltip": true,
         "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
     },
 
     "tray": {
-        "icon-size": 16,
+        "icon-size": 18,
         "spacing": 10,
         "show-passive-items": true
     },
 
     "network": {
-        "format-ethernet": "",
-        "tooltip-format": " {ifname} via {gwaddr}, {ipaddr}/{cidr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
+        "format-ethernet": "󰲝",
+        "tooltip-format": "󰲝 {ifname} via {gwaddr}, {ipaddr}/{cidr}",
+        "format-linked": "󰲝 {ifname} (No IP)",
+        "format-disconnected": "󰲜  Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "nm-connection-editor"
     },
@@ -117,12 +175,13 @@
         "format": "{} {icon}",
         "return-type": "json",
         "format-icons": {
-            "has-updates": "󱍷",
-            "updated": "󰂪"
+            "has-updates": "󱆣",
+            "updated": "󰳈"
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300",
-        "on-click": "kitty -e sudo pacman -Syu"
+        "on-click": "kitty -e sudo pacman -Syu",
+        "on-click-right": "kitty -e yay -Syu"
     },
 
     "pulseaudio": {
@@ -146,11 +205,13 @@
         "on-click-right": "pavucontrol"
     },
 
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal"
-    },
+    //"pulseaudio/slider": {
+    //    "min": 0,
+    //    "max": 100,
+    //    "orientation": "horizontal",
+    //    "tooltip-format": "{volume}%",
+    //    "tooltip": true
+    //},
 
     "custom/power": {
         "format": "",
@@ -158,30 +219,40 @@
         "tooltip": true,
         "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
     }
-}, 
+},
 
 {
     "name": "bottombar",
     "layer": "top",
+    "output": ["DP-1", "HDMI-A-2"],
     "position": "bottom",
     "margin-bottom": 5,
     "height": 42,
     "width": 1910,
     "spacing": 0,
 
-    "modules-left": ["cpu", "memory", "disk", "temperature"],
+    "modules-left": [
+        "cpu", 
+        "memory", 
+        "disk", 
+        "temperature"
+    ],
 
-    "modules-center": ["mpris", "cava"],
+    "modules-center": [
+        "cava"
+    ],
 
-    "modules-right": ["custom/weather"],
+    "modules-right": [
+        "custom/weather"
+    ],
 
     "cpu": {
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "tooltip": true
     },
 
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
 
     "disk": {
@@ -199,10 +270,8 @@
     },
 
     "cava": {
-        // "cava_config": "home/simon/.config/cava/config",
-        "framerate": 30,
+        "framerate": 60,
         "autosens": 1,
-        // "sensitivity": 100,
         "bars": 14,
         "lower_cutoff_freq": 50,
         "higher_cutoff_freq": 10000,
@@ -214,24 +283,13 @@
         "monstercat": false,
         "waves": false,
         "noise_reduction": 0.77,
-        "input_delay": 2,
+        "input_delay": 1,
+        "sleep-timer": 5,
+        "hide_on_silence": false,
         "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
         "actions": {
             "on-click-right": "mode"
             }
-    },
-
-    "mpris": {
-        "format": "{player_icon} {dynamic} <sup>{player}</sup>",
-        "format-paused": "{status_icon} {dynamic} <sup>{player}</sup>",
-        "player-icons": {
-            "default": "▶",
-            "mpv": "🎵"
-        },
-        "status-icons": {
-            "paused": "⏸"
-        },
-        "ignored-players": []
     },
 
     "custom/weather": {
@@ -242,21 +300,3 @@
         "on-click": "~/.config/waybar/scripts/weather_yad.sh"
     }
 }]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
