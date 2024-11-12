@@ -1,0 +1,81 @@
+* {
+    border-radius: 2px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+window {
+    margin: 2px;
+    border-radius: 5px;
+    /* background: linear-gradient(rgba(17, 18, 22, 1), rgba(17, 18, 22, 1), rgba(17, 18, 22, 1) ) padding-box,
+                linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(0, 125, 184, 1), rgba(255, 255, 255, 1)) border-box; */
+    /* background-color: rgba(21, 24, 29, 1); */
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#input {
+    margin: 10px 10px 0px 10px;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 125, 184, 0.5);
+    background: transparent;
+}
+
+#outer-box {
+    margin: 20px;
+    background-color: rgba(21, 24, 29, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(81, 163, 122, 0.2);
+    border-radius: 5px;
+}
+
+#inner-box {
+    margin: 5px 5px 5px 5px;
+}
+
+#scroll {
+    margin: 2px 2px 2px 2px;
+}
+
+/* scrollbar {
+    background-color: rgba(12, 12, 12, 0.5);
+} */
+
+#text {
+    margin: 0 0 0 10px;
+    color: #fff;
+    border: none;
+}
+
+#text:selected {
+    margin: 0 0 0 10px;
+    background-color: transparent;
+    border: none;
+}
+
+#entry {
+    margin: 2px;
+    border: none;
+}
+
+#entry:selected {
+    margin: 2px;
+    background-color: rgba(0, 176, 255, 0.5);
+    border: 0.5px solid rgba(81, 163, 122, 0.2);
+    border-radius: 5px;
+}
+.entry {
+    border: none;
+}
+
+#img {
+    margin: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+#expander-box {
+    background-color: transparent;
+    border: none;
+}

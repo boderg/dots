@@ -1,0 +1,80 @@
+* {
+    border-radius: 2px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+window {
+    margin: 2px;
+    border-radius: 5px;
+    /* background: linear-gradient(rgb(17, 18, 22), rgb(17, 18, 22) ) padding-box,
+                linear-gradient(135deg, #fff, #007db8, #fff) border-box; */
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#input {
+    margin: -50px 4px 0px 4px;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #007db8;
+    background: transparent;
+}
+
+#outer-box {
+    margin: 20px;
+    background-color: rgba(21, 24, 29, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    border: 1px solid rgba(81, 163, 122, 0.2);
+}
+
+#inner-box {
+    margin: 5px 5px 5px 5px;
+}
+
+#scroll {
+    margin: 2px 2px 2px 2px;
+}
+
+/* scrollbar {
+    background-color: rgba(12, 12, 12, 0.5);
+} */
+
+#text {
+    margin: 2px;
+    color: #fff;
+    border: none;
+}
+
+#text:selected {
+    margin: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+#entry {
+    margin: 2px;
+    border: none;
+}
+
+#entry:selected {
+    margin: 2px;
+    background-color: #007db8;
+    border: 0.5px solid #ffffff;
+    border-radius: 5px;
+}
+.entry {
+    border: none;
+/* } */
+
+#img {
+    margin: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+#expander-box {
+    background-color: transparent;
+    border: none;
+}

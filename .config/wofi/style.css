@@ -1,69 +1,68 @@
 * {
     border-radius: 2px;
+    font-family: "Segoe UI", sans-serif;
     font-size: 14px;
 }
 
 window {
-    margin: 2px;
+    margin: 10px;
     border-radius: 5px;
-    /* background: linear-gradient(rgba(17, 18, 22, 1), rgba(17, 18, 22, 1), rgba(17, 18, 22, 1) ) padding-box,
-                linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(0, 125, 184, 1), rgba(255, 255, 255, 1)) border-box; */
-    /* background-color: rgba(21, 24, 29, 1); */
-    background-color: transparent;
-    border: 1px solid transparent;
+    border: 2px solid #313244;
 }
 
 #input {
-    margin: 10px 10px 0px 10px;
-    color: #fff;
+    margin: 10px 1px 0px -2px;
     border-radius: 5px;
-    border: 1px solid rgba(0, 125, 184, 0.5);
-    background: transparent;
 }
 
 #outer-box {
-    margin: 20px;
-    background-color: rgba(21, 24, 29, 1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(81, 163, 122, 0.2);
+    margin: 15px;
     border-radius: 5px;
+    background: linear-gradient(
+        90deg,
+        #2f3036 45%,
+        #007db8 47%,
+        #007db8 48%,
+        #debcdf 50%,
+        #007db8 52%,
+        #007db8 53%,
+        #2f3036 55%
+    );
+    background-size: 30% 95%;
+    background-position: 0 40px;
+    background-repeat: no-repeat;
 }
 
 #inner-box {
-    margin: 5px 5px 5px 5px;
+    margin: 10px 0px 0px 10px;
 }
 
 #scroll {
     margin: 2px 2px 2px 2px;
 }
 
-/* scrollbar {
-    background-color: rgba(12, 12, 12, 0.5);
-} */
-
 #text {
-    margin: 2px;
-    color: #fff;
+    margin: 0 0 0 10px;
     border: none;
-    
 }
 
 #text:selected {
-    margin: 2px;
-    background-color: transparent;
+    margin: 0 0 0 10px;
     border: none;
+    background-color: #2f3036;
 }
 
 #entry {
-    margin: 2px;
+    margin: 2px 2px 2px 0px;
     border: none;
+    background-color: #2f3036;
 }
 
 #entry:selected {
-    margin: 2px;
-    background-color: rgba(0, 176, 255, 0.5);
-    border: 0.5px solid rgba(81, 163, 122, 0.2);
+    margin: 2px 2px 2px 0px;
+    border: 1px solid #debcdf;
     border-radius: 5px;
+    background-color: #2f3036;
 }
 .entry {
     border: none;
@@ -71,12 +70,13 @@ window {
 
 #img {
     margin: 2px;
-    background-color: transparent;
     border: none;
+}
+
+#img:selected {
+    background-color: #252831;
 }
 
 #expander-box {
-    background-color: transparent;
     border: none;
 }
-
