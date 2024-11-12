@@ -8,7 +8,7 @@ sinks=$(pactl list short sinks | while read -r line; do
   sink_name=$(echo "$line" | awk '{print $2}')
   sink_description=$(pactl list sinks | grep -A 10 "Name: $sink_name" | grep "Description:" | sed 's/.*Description: //')
   if [ "$sink_name" == "$current_sink" ]; then
-    sink_description="=> $sink_description"
+    sink_description="* $sink_description"
   fi
   echo "$sink_name|$sink_description"
 done)
@@ -18,8 +18,6 @@ selected_description=$(echo "$sinks" | awk -F'|' '{print $2}' | \
 wofi \
 --conf=/home/simon/.config/wofi/audio/config \
 --dmenu \
---height=130 \
---width=640 \
 )
 
 # Trim whitespace from the selected description

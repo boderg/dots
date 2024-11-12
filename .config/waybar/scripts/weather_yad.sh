@@ -51,7 +51,7 @@ done
 
 # Format the daily temperatures and descriptions
 DAILY_INFO=""
-for i in $(seq 0 4); do
+for i in $(seq 1 4); do
     DAY_TEMP=$(echo "${DAILY_TEMPERATURES}" | jq -r ".[$i]")
     DAY_MIN_TEMP=$(echo "${DAILY_MIN_TEMPERATURES}" | jq -r ".[$i]")
     DAY_MAX_TEMP=$(echo "${DAILY_MAX_TEMPERATURES}" | jq -r ".[$i]")
@@ -62,7 +62,7 @@ for i in $(seq 0 4); do
     DAY_MIN_TEMP=$(printf "%.1f" "${DAY_MIN_TEMP}")
     DAY_MAX_TEMP=$(printf "%.1f" "${DAY_MAX_TEMP}")
 
-    DAILY_INFO="${DAILY_INFO}
+DAILY_INFO="${DAILY_INFO}
 ${DAY_NAMES[$i]} ${DAY_DATES[$i]}:
     Temperature: ${DAY_TEMP}°C
     Min: ${DAY_MIN_TEMP}°C - Max: ${DAY_MAX_TEMP}°C
@@ -85,8 +85,6 @@ Current Conditions:
     Wind Speed: ${CURRENT_WIND_SPEED}m/s
     Sunrise: ${HUMAN_READABLE_SUNRISE}
     Sunset: ${HUMAN_READABLE_SUNSET}
-
-Daily Forecast:
 ${DAILY_INFO}
 "
 
@@ -96,7 +94,7 @@ HEIGHT=300  # Adjusted height to fit content
 POSX=100
 POSY=100
 
-# Display the tooltip using yad with specified options
+# # Display the tooltip using yad with specified options
 yad --image="${ICON_PATH}" \
     --text="${INFO}" \
     --button=Close:0 \
@@ -108,3 +106,4 @@ yad --image="${ICON_PATH}" \
     --title="Weather Report" \
     --text-align=left \
     --timeout=30 
+

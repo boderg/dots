@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# File to store the current layout
+LAYOUT_FILE="/tmp/current_keyboard_layout"
+
 # Function to set the keyboard layout
 set_keyboard_layout() {
     layout=$1
@@ -23,29 +26,22 @@ send_notification() {
     notify-send -i /home/simon/.config/waybar/icons/language-translation-icon.png "Keyboard Layout Switcher" "$message"
 }
 
-# Display selection menu using wofi
-selected_layout=$(echo -e "US English\nGB English" | \
-wofi \
---conf=/home/simon/.config/wofi/keyboard/config \
---dmenu \
---height=90 \
---width=200)
+# Read the current layout from the file
+if [ -f "$LAYOUT_FILE" ]; then
+    current_layout=$(cat "$LAYOUT_FILE")
+else
+    current_layout="us"
+fi
 
-# Trim any leading or trailing spaces
-selected_layout=$(echo "$selected_layout" | xargs)
+# Toggle the layout
+if [ "$current_layout" == "us" ]; then
+    new_layout="gb"
+else
+    new_layout="us"
+fi
 
-# Map the selected full name to the corresponding layout code
-case "$selected_layout" in
-    "US English")
-        layout_code="us"
-        ;;
-    "GB English")
-        layout_code="gb"
-        ;;
-    *)
-        layout_code=""
-        ;;
-esac
+# Set the new layout
+set_keyboard_layout "$new_layout"
 
-# Set the keyboard layout based on the selection
-set_keyboard_layout "$layout_code"
+# Save the new layout to the file
+echo "$new_layout" > "$LAYOUT_FILE"
