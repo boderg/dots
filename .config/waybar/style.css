@@ -8,27 +8,39 @@
 }
 
 window#waybar {
-    color: #eddef5;
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    background-color: @theme_base_color;
+    border: 1px solid rgba(81, 163, 122, 0.2);
+    color: @theme_text_color;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
 }
 
-window#waybar.topbar {
-    background-color: transparent;
-    /* border-radius: 5px; */
+/* window#waybar.mainbar {
+    background-color: @theme_base_color;
+    border-radius: 5px;
+    border: 1px solid @unfocused_borders;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
 }
 
-window#waybar.bottombar {
-    background-color: transparent;
-    /* border-radius: 5px; */
+window#waybar.sidebar {
+    background-color: @theme_base_color;
+    border-radius: 5px;
+    border: 1px solid @unfocused_borders;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
 }
+
+window#waybar.alternatebar {
+    background-color: @theme_base_color;
+    border-radius: 5px;
+    border: 1px solid @unfocused_borders;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+} */
 
 #window {
-    margin: 0 5px 0 0;
     border-radius: 5px;
 }
 
-.modules-left,
+/* .modules-left,
 .modules-center,
 .modules-right {
     background-color: rgb(35, 38, 46);
@@ -36,7 +48,7 @@ window#waybar.bottombar {
     border: 1px solid rgba(81, 163, 122, 0.2);
     box-shadow: 0 0 4px rgba(0, 0, 0, 1);
     margin: 5px;
-}
+} */
 
 #window,
 #workspaces {
@@ -68,12 +80,18 @@ button:hover {
     color: #007db8;
 }
 
-#clock,
+#clock {
+    color: #eddef5;
+    margin: 0 5px;
+    padding: 0 5px;
+    font-size: 18px;
+}
+
 #custom-wofi,
 #custom-power {
     color: #eddef5;
     margin: 0 5px;
-    padding: 5px;
+    padding: 0 5px;
     font-size: 20px;
 }
 
@@ -82,6 +100,7 @@ button:hover {
 #custom-picker,
 #keyboard-state,
 #language,
+#custom-calculator,
 #tray,
 #network,
 #custom-updates,
@@ -202,9 +221,9 @@ label:focus {
     padding: 0 5px;
 } */
 
-#keyboard-state > label.locked {
+/* #keyboard-state > label.locked {
     color: #007db8;
-}
+} */
 
 tooltip {
     background-color: rgba(21, 24, 29, 1);

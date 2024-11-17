@@ -1,11 +1,11 @@
 [{
-    "name": "topbar",
+    "name": "mainbar",
     "layer": "top",
     "output": ["DP-1", "HDMI-A-2"],
-    "position": "top",
-    "margin-top": 5,
+    "position": "bottom",
+    "margin-bottom": 5,
     "height": 42,
-    "width": 1910,
+    "width": 1900,
     "spacing": 0,
 
     "modules-left": [
@@ -21,20 +21,15 @@
 
     "modules-right": [
         "mpris", 
-        "custom/hyprshot", 
-        "custom/picker", 
-        "keyboard-state", 
-        "hyprland/language", 
         "tray", 
         "network", 
-        "custom/updates", 
         "pulseaudio", 
         //"pulseaudio/slider", 
         "custom/power"
     ],
 
     "custom/wofi": {
-        "format": "󰣇",
+        "format": "<span color='#007db8'>󰣇</span>",
         "tooltip-format": "Menu",
         "tooltip": true,
         "on-click": "wofi"
@@ -118,52 +113,14 @@
         ]
     },
 
-    "custom/hyprshot": {
-        "format": "",
-        "tooltip-format": "Hyprshot",
-        "tooltip": true,
-        "on-click": "hyprshot -m window",
-        "on-click-right": "hyprshot -m output",
-        "on-click-middle": "hyprshot -m region"
-    },
-
-    "custom/picker": {
-        "format": "",
-        "tooltip-format": "Hyprpicker",
-        "tooltip": true,
-        "on-click": "hyprpicker -a -f rgb",
-        "on-click-right": "hyprpicker -f hex"
-    },
-
-    "keyboard-state": {
-        "numlock": false,
-        "capslock": true,
-        "tooltip-format": "Capslock",
-        "tooltip": true,
-        "format": "{icon}",
-        "format-icons": {
-            "locked": "󰪛",
-            "unlocked": "󰪛"
-        }
-    },
-
-    "hyprland/language": {
-        "format": " {short}",
-        "format-us": "us",
-        "format-gb": "gb",
-        "tooltip-format": "{short}",
-        "tooltip": true,
-        "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
-    },
-
     "tray": {
-        "icon-size": 18,
-        "spacing": 10,
+        "icon-size": 24,
+        "spacing": 5,
         "show-passive-items": true
     },
 
     "network": {
-        "format-ethernet": "󰲝",
+        "format-ethernet": "<span font-size='large'>󰲝</span>",
         "tooltip-format": "󰲝 {ifname} via {gwaddr}, {ipaddr}/{cidr}",
         "format-linked": "󰲝 {ifname} (No IP)",
         "format-disconnected": "󰲜  Disconnected",
@@ -171,22 +128,9 @@
         "on-click": "nm-connection-editor"
     },
 
-    "custom/updates": {
-        "format": "{} {icon}",
-        "return-type": "json",
-        "format-icons": {
-            "has-updates": "󱆣",
-            "updated": "󰳈"
-        },
-        "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300",
-        "on-click": "kitty -e sudo pacman -Syu",
-        "on-click-right": "kitty -e yay -Syu"
-    },
-
     "pulseaudio": {
         "scroll-step": 1,
-        "format": "{icon} {volume}%",
+        "format": "<span font-size='large'>{icon}</span> {volume}%",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -214,7 +158,7 @@
     //},
 
     "custom/power": {
-        "format": "",
+        "format": "<span color='#eb4d4b'></span>",
         "tooltip-format": "Power",
         "tooltip": true,
         "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
@@ -222,41 +166,102 @@
 },
 
 {
-    "name": "bottombar",
+    "name": "sidebar",
     "layer": "top",
-    "output": ["DP-1", "HDMI-A-2"],
-    "position": "bottom",
-    "margin-bottom": 5,
-    "height": 42,
-    "width": 1910,
+    "output": ["DP-1"],
+    "position": "left",
+    "margin-left": 10,
+    "height": 1010,
+    "width": 30,
     "spacing": 0,
 
     "modules-left": [
+        "hyprland/language",
+        "keyboard-state", 
+        "custom/hyprshot", 
+        "custom/picker",
+        "custom/calculator"
+    ],
+
+    "modules-center": [
+        "custom/updates"
+    ],
+
+    "modules-right": [
         "cpu", 
         "memory", 
         "disk", 
         "temperature"
     ],
 
-    "modules-center": [
-        "cava"
-    ],
+    "custom/hyprshot": {
+        "format": "<span font-size='large'></span>",
+        "tooltip-format": "Hyprshot",
+        "tooltip": true,
+        "on-click": "hyprshot -m window",
+        "on-click-right": "hyprshot -m output",
+        "on-click-middle": "hyprshot -m region"
+    },
 
-    "modules-right": [
-        "custom/weather"
-    ],
+    "custom/picker": {
+        "format": "<span font-size='large'></span>",
+        "tooltip-format": "Hyprpicker",
+        "tooltip": true,
+        "on-click": "hyprpicker -a -f rgb",
+        "on-click-right": "hyprpicker -f hex"
+    },
+
+    "keyboard-state": {
+        "numlock": false,
+        "capslock": true,
+        "tooltip-format": "Capslock",
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "<span color='#007db8' font-size='large'>󰪛</span>",
+            "unlocked": "<span color='#ffffff' font-size='large'>󰪛</span>"
+        }
+    },
+
+    "hyprland/language": {
+        "format": "<span font-size='large'></span> {short}",
+        "format-us": "us",
+        "format-gb": "gb",
+        "tooltip-format": "{short}",
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
+    },
+
+    "custom/calculator": {
+    "format": "<span font-size='large'></span>",
+    "on-click": "qalculate-gtk",
+    "tooltip-format": "Open calculator"
+    },
+
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "<span color='#eb4d4b' font-size='large'>󱆣</span>",
+            "updated": "<span color='#67c8a4' font-size='large'>󰳈</span>"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300",
+        "on-click": "kitty -e sudo pacman -Syu",
+        "on-click-right": "kitty -e yay -Syu"
+    },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "<span font-size='large'></span> {usage}%",
         "tooltip": true
     },
 
     "memory": {
-        "format": " {}%"
+        "format": "<span font-size='large'></span> {}%"
     },
 
     "disk": {
-        "format": " {}%",
+        "format": "<span font-size='large'></span> {}%",
         "on-click": "gnome-disks"
     },
 
@@ -264,9 +269,56 @@
         "thermal-zone": 1,
         "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
         "critical-threshold": 80,
-        "format-critical": " {temperatureC}°C",
-        "format": " {temperatureC}°C",
+        "format-critical": "<span color='#eb4d4b' font-size='large'></span> {temperatureC}°C",
+        "format": "<span font-size='large'></span> {temperatureC}°C",
         "on-click": "amdgpu_top --gui"
+    }
+},
+
+{
+    "name": "alternatebar",
+    "layer": "top",
+    "output": ["HDMI-A-1"],
+    "position": "bottom",
+    "margin-bottom": 5,
+    "height": 42,
+    "width": 1900,
+    "spacing": 0,
+
+    "modules-left": [
+        "custom/wofi",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "cava"
+    ],
+
+    "modules-right": [
+        "custom/weather",
+        "clock",
+        "custom/power"
+    ],
+
+    "custom/wofi": {
+        "format": "<span color='#007db8'>󰣇</span>",
+        "tooltip-format": "Menu",
+        "tooltip": true,
+        "on-click": "wofi"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": false,
+        "icon": true,
+        "icon-size": 18,
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "Firefox",
+            "(.*) - Brave": "Brave",
+            "(.*) - Visual Studio Code": "VS Code",
+            "(.*) - Mozilla Thunderbird Beta": "Thunderbird"
+        }
     },
 
     "cava": {
@@ -298,5 +350,33 @@
         "format": "{}",
         "tooltip": false,
         "on-click": "~/.config/waybar/scripts/weather_yad.sh"
+    },
+
+    "clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%a %d-%m-%Y}",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                                "months":     "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
+                                "days":       "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
+                                "weeks":      "<span font-family='JetBrains Mono' color='#99ffdd'>w{}</span>",
+                                "weekdays":   "<span font-family='JetBrains Mono' color='#007db8'>{}</span>",
+                                "today":      "<span font-family='JetBrains Mono' color='#ff6699'><u>{}</u></span>"
+                                }
+                    }
+    },
+
+    "custom/power": {
+        "format": "<span color='#eb4d4b'></span>",
+        "tooltip-format": "Power",
+        "tooltip": true,
+        "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
     }
+
+    
 }]
