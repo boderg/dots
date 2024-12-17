@@ -20,17 +20,15 @@ window {
     border-radius: 5px;
     background: linear-gradient(
         90deg,
-        #2f3036 45%,
+        #1a1d23 45%,
         #007db8 47%,
         #007db8 48%,
         #debcdf 50%,
         #007db8 52%,
         #007db8 53%,
-        #2f3036 55%
+        #1a1d23 55%
     );
-    background-size: 30% 95%;
     background-position: 0 40px;
-    background-repeat: no-repeat;
 }
 
 #inner-box {

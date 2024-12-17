@@ -21,8 +21,8 @@
 
     "modules-right": [
         "mpris", 
-        "tray", 
         "network", 
+        "tray", 
         "pulseaudio", 
         //"pulseaudio/slider", 
         "custom/power"
@@ -32,7 +32,8 @@
         "format": "<span color='#007db8'>󰣇</span>",
         "tooltip-format": "Menu",
         "tooltip": true,
-        "on-click": "wofi"
+        "on-click": "wofi",
+        "on-click-right": "xfce4-appfinder"
     },
 
     "hyprland/workspaces": {
@@ -92,7 +93,7 @@
                                 "days":       "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
                                 "weeks":      "<span font-family='JetBrains Mono' color='#99ffdd'>w{}</span>",
                                 "weekdays":   "<span font-family='JetBrains Mono' color='#007db8'>{}</span>",
-                                "today":      "<span font-family='JetBrains Mono' color='#ff6699'><u>{}</u></span>"
+                                "today":      "<span font-family='JetBrains Mono' color='#eb4d4b'><u>{}</u></span>"
                                 }
                     }
     },
@@ -100,6 +101,7 @@
     "mpris": {
         "format": "{player_icon} {dynamic} <sup>{player}</sup>",
         "format-paused": "{status_icon} {dynamic} <sup>{player}</sup>",
+        "on-click": "playerctl play-pause",
         "player-icons": {
             "default": "▶",
             "mpv": "🎵"
@@ -180,6 +182,7 @@
         "keyboard-state", 
         "custom/hyprshot", 
         "custom/picker",
+        "custom/hyprsunset",
         "custom/calculator"
     ],
 
@@ -211,6 +214,21 @@
         "on-click-right": "hyprpicker -f hex"
     },
 
+    "custom/hyprsunset": {
+        "format": "<span font-size='large'>󱎴</span>",
+        "tooltip-format": "Hyprsunset",
+        "tooltip": true,
+        "on-click": "hyprsunset -t 4000k",
+        "on-click-right": "hyprsunset -t 8000k",
+        "on-click-middle": "hyprsunset -t 6000k"
+    },
+
+    "custom/calculator": {
+    "format": "<span font-size='large'></span>",
+    "on-click": "qalculate-gtk",
+    "tooltip-format": "Open calculator"
+    },
+
     "keyboard-state": {
         "numlock": false,
         "capslock": true,
@@ -232,18 +250,12 @@
         "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
     },
 
-    "custom/calculator": {
-    "format": "<span font-size='large'></span>",
-    "on-click": "qalculate-gtk",
-    "tooltip-format": "Open calculator"
-    },
-
     "custom/updates": {
         "format": "{} {icon}",
         "return-type": "json",
         "format-icons": {
             "has-updates": "<span color='#eb4d4b' font-size='large'>󱆣</span>",
-            "updated": "<span color='#67c8a4' font-size='large'>󰳈</span>"
+            "updated": "<span color='#99ffdd' font-size='large'>󰳈</span>"
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300",
