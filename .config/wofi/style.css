@@ -18,7 +18,7 @@ window {
 #outer-box {
     margin: 15px;
     border-radius: 5px;
-    background: linear-gradient(
+    /* background: linear-gradient(
         90deg,
         #1a1d23 45%,
         #007db8 47%,
@@ -27,7 +27,7 @@ window {
         #007db8 52%,
         #007db8 53%,
         #1a1d23 55%
-    );
+    ); */
     background-position: 0 40px;
 }
 

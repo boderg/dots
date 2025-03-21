@@ -4,7 +4,7 @@
         "Segoe UI",
         FontAwesome,
         Symbols Nerd Font Mono;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -78,21 +78,31 @@ button:hover {
 
 #workspaces button.active {
     color: #007db8;
+    font-weight: bold;
+    border: 1px solid #007db8;
 }
 
 #clock {
     color: #eddef5;
     margin: 0 5px;
     padding: 0 5px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #custom-wofi,
 #custom-power {
-    color: #eddef5;
-    margin: 0 5px;
-    padding: 0 5px;
-    font-size: 20px;
+    color: @theme_base_color;
+    /* margin: 0 5px; */
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+#custom-wofi {
+    background-color: #007db8;
+}
+
+#custom-power {
+    background-color: #eb4d4b;
 }
 
 #wlr-taskbar,
@@ -120,12 +130,20 @@ button:hover {
     background-color: transparent;
 }
 
-#custom-hyprshot {
-    margin-left: 5px;
+#language {
+    margin-top: 5px;
+}
+
+#temperature {
+    margin-bottom: 5px;
 }
 
 #cava {
     color: #e0b3f8;
+}
+
+#pulseaudio {
+    margin-right: 5px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -169,8 +187,18 @@ label:focus {
     background-color: #ffa000;
 }
 
+#tray menu {
+    background-color: @theme_base_color;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
 #tray {
     background-color: transparent;
+}
+
+#tray > .active {
+    -gtk-icon-effect: highlight;
 }
 
 #tray > .passive {
@@ -227,13 +255,13 @@ label:focus {
 } */
 
 tooltip {
-    background-color: rgba(21, 24, 29, 1);
+    background-color: @theme_base_color;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     font-size: 16px;
 }
 
-#pulseaudio-slider slider {
+/* #pulseaudio-slider slider {
     min-height: 0px;
     min-width: 0px;
     opacity: 0;
@@ -251,4 +279,4 @@ tooltip {
     min-width: 5px;
     border-radius: 5px;
     background-color: #007db8;
-}
+} */

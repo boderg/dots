@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/simon/.config/waybar/weather.conf
+source /home/simon/.config/weather.conf
 
 URL="https://api.openweathermap.org/data/3.0/onecall?lat=${LATITUDE}&lon=${LONGITUDE}&exclude=${EXCLUDE}&units=${UNITS}&appid=${API_KEY}"
 

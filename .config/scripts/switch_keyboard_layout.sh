@@ -23,7 +23,7 @@ set_keyboard_layout() {
 # Function to send a notification
 send_notification() {
     message=$1
-    notify-send -i /home/simon/.config/waybar/icons/language-translation-icon.png "Keyboard Layout Switcher" "$message"
+    notify-send -i /home/simon/.config/mako/icons/language-translation-icon.png "Keyboard Layout Switcher" "$message"
 }
 
 # Read the current layout from the file

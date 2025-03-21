@@ -16,6 +16,13 @@ current_track=$(playerctl metadata --format "{{ artist }} - {{ title }}")
 # Loop to check for new tracks
 while true; do
     new_track=$(playerctl metadata --format "{{ artist }} - {{ title }}")
+    
+    # Check if new_track is empty
+    if [ -z "$new_track" ]; then
+        sleep 5
+        continue
+    fi
+
     if [ "$new_track" != "$current_track" ]; then
         current_track=$new_track
         send_notification

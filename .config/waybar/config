@@ -1,35 +1,35 @@
 [{
     "name": "mainbar",
     "layer": "top",
-    "output": ["DP-1", "HDMI-A-2"],
+    "output": ["DP-1"],
     "position": "bottom",
     "margin-bottom": 5,
     "height": 42,
-    "width": 1900,
+    "width": 3420,
     "spacing": 0,
 
     "modules-left": [
         "custom/wofi", 
         "hyprland/workspaces", 
         "hyprland/window"
-        //"wlr/taskbar"
     ],
 
     "modules-center": [
-        "clock"
+        "cava",
+        "clock",
+        "custom/weather"
     ],
 
     "modules-right": [
         "mpris", 
-        "network", 
         "tray", 
-        "pulseaudio", 
-        //"pulseaudio/slider", 
+        "network", 
+        "pulseaudio",
         "custom/power"
     ],
 
     "custom/wofi": {
-        "format": "<span color='#007db8'>󰣇</span>",
+        "format": "<span font-size='x-large'>󰣇</span>",
         "tooltip-format": "Menu",
         "tooltip": true,
         "on-click": "wofi",
@@ -68,16 +68,13 @@
         }
     },
 
-    // "wlr/taskbar": {
-    //     "format": "{icon}",
-    //     "icon-size": 18,
-    //     "tooltip-format": "{title}",
-    //     "on-click": "activate",
-    //     "on-click-middle": "close",
-    //     "ignore-list": [
-    //         "kitty"
-    //     ]
-    // },
+    "custom/weather": {
+        "exec": "~/.config/scripts/weather.sh",
+        "interval": 3600,
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "~/.config/scripts/weather_yad.sh"
+    },
 
     "clock": {
         "timezone": "Europe/London",
@@ -98,6 +95,29 @@
                     }
     },
 
+    "cava": {
+        "framerate": 60,
+        "autosens": 1,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 1,
+        "sleep-timer": 5,
+        "hide_on_silence": false,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+            "on-click-right": "mode"
+            }
+    },
+
     "mpris": {
         "format": "{player_icon} {dynamic} <sup>{player}</sup>",
         "format-paused": "{status_icon} {dynamic} <sup>{player}</sup>",
@@ -115,12 +135,6 @@
         ]
     },
 
-    "tray": {
-        "icon-size": 24,
-        "spacing": 5,
-        "show-passive-items": true
-    },
-
     "network": {
         "format-ethernet": "<span font-size='large'>󰲝</span>",
         "tooltip-format": "󰲝 {ifname} via {gwaddr}, {ipaddr}/{cidr}",
@@ -128,6 +142,13 @@
         "format-disconnected": "󰲜  Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "nm-connection-editor"
+    },
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 5,
+        "show-passive-items": true,
+        "reverse-direction": true
     },
 
     "pulseaudio": {
@@ -147,23 +168,15 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "~/.config/waybar/scripts/select_audio_sink.sh",
+        "on-click": "~/.config/scripts/select_audio_sink.sh",
         "on-click-right": "pavucontrol"
     },
 
-    //"pulseaudio/slider": {
-    //    "min": 0,
-    //    "max": 100,
-    //    "orientation": "horizontal",
-    //    "tooltip-format": "{volume}%",
-    //    "tooltip": true
-    //},
-
     "custom/power": {
-        "format": "<span color='#eb4d4b'></span>",
+        "format": "<span font-size='x-large'></span>",
         "tooltip-format": "Power",
         "tooltip": true,
-        "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
+        "on-click": "wlogout -p layer-shell -n -b 4 -c 20 -r 0 -m 0 -T 1050 -B 300 -R 1500 -L 1500"
     }
 },
 
@@ -173,7 +186,7 @@
     "output": ["DP-1"],
     "position": "left",
     "margin-left": 10,
-    "height": 1010,
+    "height": 1372,
     "width": 30,
     "spacing": 0,
 
@@ -247,7 +260,7 @@
         "format-gb": "gb",
         "tooltip-format": "{short}",
         "tooltip": true,
-        "on-click": "~/.config/waybar/scripts/switch_keyboard_layout.sh"
+        "on-click": "~/.config/scripts/switch_keyboard_layout.sh"
     },
 
     "custom/updates": {
@@ -288,7 +301,7 @@
 },
 
 {
-    "name": "alternatebar",
+    "name": "mainbar2",
     "layer": "top",
     "output": ["HDMI-A-1"],
     "position": "bottom",
@@ -298,25 +311,49 @@
     "spacing": 0,
 
     "modules-left": [
-        "custom/wofi",
+        "custom/wofi", 
+        "hyprland/workspaces", 
         "hyprland/window"
     ],
 
     "modules-center": [
-        "cava"
+        "cava",
+        "clock",
+        "custom/weather"
     ],
 
     "modules-right": [
-        "custom/weather",
-        "clock",
+        "mpris", 
+        "tray", 
+        "network", 
+        "pulseaudio",
         "custom/power"
     ],
 
     "custom/wofi": {
-        "format": "<span color='#007db8'>󰣇</span>",
+        "format": "<span font-size='x-large'>󰣇</span>",
         "tooltip-format": "Menu",
         "tooltip": true,
-        "on-click": "wofi"
+        "on-click": "wofi",
+        "on-click-right": "xfce4-appfinder"
+    },
+
+    "hyprland/workspaces": {
+	"on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}"
+        // "format-icons": {
+        //     "1": "",
+        //     "2": "",
+        //     "3": "",
+        //     "4": "",
+        //     "5": "",
+        //     "urgent": "",
+        //     "focused": "",
+        //     "default": ""
+        // }
     },
 
     "hyprland/window": {
@@ -331,6 +368,33 @@
             "(.*) - Visual Studio Code": "VS Code",
             "(.*) - Mozilla Thunderbird Beta": "Thunderbird"
         }
+    },
+
+    "custom/weather": {
+        "exec": "~/.config/scripts/weather.sh",
+        "interval": 3600,
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "~/.config/scripts/weather_yad.sh"
+    },
+
+    "clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%a %d-%m-%Y}",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                                "months":     "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
+                                "days":       "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
+                                "weeks":      "<span font-family='JetBrains Mono' color='#99ffdd'>w{}</span>",
+                                "weekdays":   "<span font-family='JetBrains Mono' color='#007db8'>{}</span>",
+                                "today":      "<span font-family='JetBrains Mono' color='#eb4d4b'><u>{}</u></span>"
+                                }
+                    }
     },
 
     "cava": {
@@ -356,39 +420,64 @@
             }
     },
 
-    "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh",
-        "interval": 3600,
-        "format": "{}",
-        "tooltip": false,
-        "on-click": "~/.config/waybar/scripts/weather_yad.sh"
+    "mpris": {
+        "format": "{player_icon} {dynamic} <sup>{player}</sup>",
+        "format-paused": "{status_icon} {dynamic} <sup>{player}</sup>",
+        "on-click": "playerctl play-pause",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": [
+            "firefox",
+            "brave"
+        ]
     },
 
-    "clock": {
-        "timezone": "Europe/London",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format-alt": "{:%a %d-%m-%Y}",
-        "calendar": {
-                    "mode"          : "month",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                                "months":     "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
-                                "days":       "<span font-family='JetBrains Mono' color='#ffffff'>{}</span>",
-                                "weeks":      "<span font-family='JetBrains Mono' color='#99ffdd'>w{}</span>",
-                                "weekdays":   "<span font-family='JetBrains Mono' color='#007db8'>{}</span>",
-                                "today":      "<span font-family='JetBrains Mono' color='#ff6699'><u>{}</u></span>"
-                                }
-                    }
+    "network": {
+        "format-ethernet": "<span font-size='large'>󰲝</span>",
+        "tooltip-format": "󰲝 {ifname} via {gwaddr}, {ipaddr}/{cidr}",
+        "format-linked": "󰲝 {ifname} (No IP)",
+        "format-disconnected": "󰲜  Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 5,
+        "show-passive-items": true,
+        "reverse-direction": true
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "<span font-size='large'>{icon}</span> {volume}%",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "~/.config/scripts/select_audio_sink.sh",
+        "on-click-right": "pavucontrol"
     },
 
     "custom/power": {
-        "format": "<span color='#eb4d4b'></span>",
+        "format": "<span font-size='x-large'></span>",
         "tooltip-format": "Power",
         "tooltip": true,
         "on-click": "wlogout -p layer-shell -n -b 4 -c 10 -r 0 -m 0 -T 800 -B 200 -R 750 -L 750"
     }
-
-    
 }]

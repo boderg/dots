@@ -44,10 +44,10 @@ if [ "$selected_sink" != "$current_sink" ]; then
       pactl move-sink-input "$stream" "$selected_sink"
     done
 
-    notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "Audio output changed to $selected_description"
+    notify-send -i /home/simon/.config/mako/icons/music-note-icon.png "Audio Switcher" "Audio output changed to $selected_description"
   else
-    notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "No audio output selected"
+    notify-send -i /home/simon/.config/mako/icons/music-note-icon.png "Audio Switcher" "No audio output selected"
   fi
 else
-  notify-send -i /home/simon/.config/waybar/icons/music-note-icon.png "Audio Switcher" "Audio output is already set to $selected_description"
+  notify-send -i /home/simon/.config/mako/icons/music-note-icon.png "Audio Switcher" "Audio output is already set to $selected_description"
 fi
