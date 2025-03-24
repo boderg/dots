@@ -1,5 +1,5 @@
 import { App, Astal, Gdk, Gtk, Widget } from "astal/gtk3"
-import { Variable } from "astal"
+import { Variable, GLib } from "astal"
 import AudioSlider from "./modules/AudioSlider"
 import AudioSwitch from "./modules/AudioSwitch"
 import Hyprpicker from "./modules/Hyprpicker"
@@ -24,7 +24,6 @@ export default function Settings() {
     return (
         <window
             name="settings"
-            setup={self => App.add_window(self)}
             anchor={Astal.WindowAnchor.BOTTOM|Astal.WindowAnchor.RIGHT}
             exclusivity={Astal.Exclusivity.IGNORE}
             keymode={Astal.Keymode.ON_DEMAND}

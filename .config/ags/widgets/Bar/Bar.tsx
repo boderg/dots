@@ -1,4 +1,4 @@
-import { Astal, Gtk, Gdk } from "astal/gtk3"
+import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 
 import AppButton from "./modules/AppButton"
 // import AudioSwitch from "./modules/AudioSwitch"

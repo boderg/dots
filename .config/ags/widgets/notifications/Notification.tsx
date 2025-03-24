@@ -33,7 +33,8 @@ type Props = {
 export default function Notification(props: Props) {
     const { notification: n, onHoverLost, setup } = props
     const { START, CENTER, END } = Gtk.Align
-
+    const cleanPath = n.image.replace(/^file:\/\//, "")
+    
     return (
         <eventbox
             className={`Notification ${urgency(n)}`}
@@ -69,7 +70,7 @@ export default function Notification(props: Props) {
             <Gtk.Separator visible />
             <box 
                 className="content">
-                {n.image && fileExists(n.image) && <box
+                {n.image && fileExists(cleanPath) && <box
                     valign={START}
                     className="image"
                     css={`background-image: url('${n.image}')`}

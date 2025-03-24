@@ -1,7 +1,7 @@
-import { exec } from "astal/process"
+import { exec, execAsync } from "astal/process"
 
 export default function KeyboardSwitch() {
-  const keyboard_switch = () => exec("/home/simon/.config/ags/scripts/switch_keyboard_layout.sh")
+  const keyboard_switch = () => execAsync("/home/simon/.config/ags/scripts/switch_keyboard_layout.sh")
     
     return (
         <button

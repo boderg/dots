@@ -14,18 +14,18 @@ export default function Media() {
                         className="Cover"
                         valign={Gtk.Align.CENTER}
                         css={bind(ps[0], "coverArt").as(cover =>
-                        `background-image: url('${cover}');`
+                        `background-image: url('${cover}') ? cover : "vinyl";`
                         )}
                     />
                     <label
                         label={bind(ps[0], "metadata").as(metadata =>
-                        metadata ? `${ps[0].title ?? "Unknown Title"} - ${ps[0].artist ?? "Unknown Artist"}` : ""
+                        metadata ? `${ps[0].title ?? "Unknown Title"}  ${ps[0].artist ?? "Unknown Artist"}` : " "
                         )}
                     />
                 </box>
             ) : (
                 <label 
-                    label="" />
+                    label=" " />
                 ))}
         </box>
     )

@@ -5,7 +5,7 @@ export default function LogoutButton() {
   
     return (
         <button 
-            className="LogoutButton" 
+            className="logout-button" 
             onClicked={Power}>
             <icon 
                 icon={"system-shutdown"} />

@@ -12,7 +12,7 @@ export default function Hyprshot() {
                 <button
                     className="Hyprshot" 
                     onClicked={hyprshot_window} >
-                      <icon icon="camera-photo" />
+                      <icon icon="display-screen-windows" />
                 </button>
                       <label label="Window" />
               </box>
@@ -21,18 +21,18 @@ export default function Hyprshot() {
                 <button
                     className="Hyprshot" 
                     onClicked={hyprshot_region} >
-                      <icon icon="camera-photo" />
+                      <icon icon="preferences-system-windows-effect-kscreen" />
                 </button>
-                      <label label="Region" />
+                      <label label="Selection" />
             </box>
             <box
               vertical >
                 <button
                     className="Hyprshot" 
                     onClicked={hyprshot_output} >
-                      <icon icon="camera-photo" />
+                      <icon icon="applets-screenshooter" />
                 </button>
-                      <label label="Output" />
+                      <label label="Monitor" />
             </box>
         </box>
     )

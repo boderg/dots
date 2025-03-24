@@ -53,7 +53,6 @@ export default function Applauncher() {
     return (
         <window
             name="launcher"
-            setup={self => App.add_window(self)}
             anchor={Astal.WindowAnchor.LEFT | Astal.WindowAnchor.BOTTOM}
             exclusivity={Astal.Exclusivity.IGNORE}
             keymode={Astal.Keymode.ON_DEMAND}

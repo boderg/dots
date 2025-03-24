@@ -20,7 +20,7 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
         a || "Unknown Artist")
 
     const coverArt = bind(player, "coverArt").as(c =>
-        `background-image: url('${c}')`)
+        `background-image: url('${c}')` ? c : "vinyl")
 
     const playerIcon = bind(player, "entry").as(e =>
         Astal.Icon.lookup_icon(e) ? e : "audio-x-generic-symbolic")
